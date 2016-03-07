@@ -1,4 +1,12 @@
 .tweets {
+  .alert-info{
+    text-align: center;
+    border: 0px;
+    margin: -30px;
+    border-radius: 0px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
   .tweet {
     display: flex;
     margin-bottom: 20px;
