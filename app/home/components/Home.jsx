@@ -1,15 +1,18 @@
 import React from 'react'
 import moment from 'moment'
 
-
-let twitterHandle = (name) => {
-  return `@${name.replace(" ", "").toLowerCase()}`
-}
-
 class Home extends React.Component{
+  renderPendingTweets() {
+    if (this.props.newTweets.length > 0)  {
+      return (
+        <div onClick={this.props.showNewTweets} className="alert alert-info">{this.props.newTweets.length} new tweets</div>
+      )
+    }
+  }
   render(){
     return (
       <div className="tweets">
+        {this.renderPendingTweets()}
         {
           this.props.tweets.map((tweet) => {
             return (
@@ -43,5 +46,8 @@ class Home extends React.Component{
   }
 }
 
+let twitterHandle = (name) => {
+  return `@${name.replace(" ", "").toLowerCase()}`
+}
 
 export default Home
