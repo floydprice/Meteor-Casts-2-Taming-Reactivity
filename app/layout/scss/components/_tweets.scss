@@ -1,0 +1,54 @@
+.tweets {
+  .tweet {
+    display: flex;
+    margin-bottom: 20px;
+    .avatar {
+      flex: 0 1 105px;
+      img {
+        width: 75px;
+        height: 75px;
+        background-color: #aaa;
+        border-radius: 4px;
+      }
+    }
+    .content {
+      .header{
+        p{
+          font-weight: bold;
+          display: inline-block;
+          span.value{
+            font-weight: normal;
+            margin: 0 10px;
+            color: #aaa;
+            font-weight: normal;
+          }
+        }
+      }
+      .main {
+        p{
+          //font-weight: bold;
+        }
+      }
+      .meta{
+        p{
+          color: #aaa;
+          font-weight: bold;
+          display: inline-block;
+          .fa{
+            margin-right: 5px;
+            &.fa-heart{
+              color: pink;
+            }
+            &.fa-retweet{
+              color: #516e80;
+            }
+          }
+          span.value{
+            font-weight: normal;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}

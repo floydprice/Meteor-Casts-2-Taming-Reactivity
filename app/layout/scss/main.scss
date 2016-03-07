@@ -1,0 +1,12 @@
+@import '{reywood:bootstrap3-sass}/bootstrap';
+
+@import "components/layout";
+@import "components/header";
+@import "components/content_card";
+@import "components/tweets";
+
+body{
+  -webkit-background-clip: no-clip;
+  -moz-background-clip: no-clip;
+  background-color: #e6e6e6;
+}

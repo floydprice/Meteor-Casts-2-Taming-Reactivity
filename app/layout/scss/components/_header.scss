@@ -1,0 +1,31 @@
+header{
+  background: url(images/bg.jpg) no-repeat bottom center fixed;
+  background-size: cover;
+  min-height: 250px;
+  color: #e86767;
+  position:relative;
+  .content{
+    max-width: 1000px;
+    margin: auto;
+    position:relative;
+    h1{
+      font-size: 4em;
+      font-weight: bold;
+      font-family: 'Amatic SC', cursive;
+      margin: 0px;
+      padding: 20px 0px;
+      span.muted{
+        color: #9a9da2;
+      }
+    }
+  }
+  &:before{
+    content: '';
+    height: 100%;
+    width:100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(44,51,64,0.7);
+  }
+}
