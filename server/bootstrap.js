@@ -1,37 +1,33 @@
 import Tweets from '../lib/tweets'
 
+let insertNewTweet = (randomDates = false) => {
+  let newTweet = {
+    content: faker.hacker.phrase(),
+    created_at: randomDates ? faker.date.recent(2) : new Date(),
+    likes: faker.random.number(10),
+    retweets: faker.random.number(4),
+    tweeter: {
+      name: faker.name.findName(),
+      avatar: faker.internet.avatar()
+    }
+  }
+  console.log(`inserting new tweet from ${newTweet.tweeter.name}`)
+  Tweets.insert(newTweet)
+}
+
+let insertNewTweets = (times, randomDates = false) => {
+  _.times(times, () => {
+    insertNewTweet(randomDates)
+  })
+}
+
 Meteor.startup(() => {
   // Bootstrap the app with some data
-  Tweets.remove({});
-  _.times(100, () => {
-    let newTweet = {
-      content: faker.hacker.phrase(),
-      created_at: faker.date.recent(365),
-      likes: faker.random.number(1000),
-      retweets: faker.random.number(250) ,
-      tweeter: {
-        name: faker.name.findName(),
-        avatar: faker.internet.avatar()
-      }
-    }
-    Tweets.insert(newTweet)
-  })
+  Tweets.remove({})
+  insertNewTweets(25, true)
 
   // Now simulate data coming in...
   Meteor.setInterval(() => {
-    let newTweet = {
-      content: faker.hacker.phrase(),
-      created_at: new Date(),
-      likes: faker.random.number(10),
-      retweets: faker.random.number(4),
-      tweeter: {
-        name: faker.name.findName(),
-        avatar: faker.internet.avatar()
-      }
-    }
-    console.log(`inserting new tweet from ${newTweet.tweeter.name}` )
-    Tweets.insert(newTweet)
-  }, 3000)
-
-
+    insertNewTweets(3)
+  }, 7000)
 })
